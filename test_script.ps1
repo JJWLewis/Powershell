@@ -23,6 +23,28 @@ $Rng = $ws.UsedRange.Cells
 $row = $Rng.Rows.Count
 
 #Delete a range
-$Range = $ws.range("A:B")
-$Range.Delete()  #not tried, comma should be a ; ?
+$Range = $ws.range("A:B","D:E")
+#$Range.Delete()  #not tried, comma should be a ; ?
 
+#Set a colour instead of deleting for now
+$Range.Interior.Color = 200
+
+
+
+
+
+
+
+##Attempt 2
+
+$colList = @(1,3,5,8)
+
+
+for ($i = $colList.length; $i -ge 0; $i--) {
+  
+      $Range = $ws.Cells.Item($colList[$i], 1).EntireRow
+        #$Range.Interior.Color = 100
+      $Range.Delete()   
+}
+
+  
